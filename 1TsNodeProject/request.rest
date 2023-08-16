@@ -1,0 +1,14 @@
+GET http://localhost:3000/
+
+
+###
+GET http://localhost:3000/books/3
+
+###
+POST http://localhost:3000/update
+Content-Type: application/json
+
+{
+    "name":"first book", 
+    "description":"this is the description of the first book"
+}
