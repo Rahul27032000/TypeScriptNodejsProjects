@@ -1,0 +1,16 @@
+# Ignore node_modules folder in all subdirectories
+node_modules/
+
+# Ignore generated files
+.DS_Store
+*.log
+
+# Ignore Node.js modules
+**/node_modules/
+
+# Ignore TypeScript compiled files
+**/*.js
+**/*.js.map
+
+# Ignore other TypeScript-specific files
+**/*.d.ts
