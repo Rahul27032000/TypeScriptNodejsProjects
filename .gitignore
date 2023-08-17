@@ -14,3 +14,4 @@ node_modules/
 
 # Ignore other TypeScript-specific files
 **/*.d.ts
+.env
