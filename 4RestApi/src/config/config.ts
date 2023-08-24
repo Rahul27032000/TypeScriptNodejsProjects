@@ -9,7 +9,7 @@ const MONGO_PASSWORD = process.env.MONGO_PASS;
 const access_token = process.env.ACCESS_TOKEN;
 const refresh_token = process.env.REFRESH_TOKEN;
 
-const MONGO_URL = `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@cluster0.zxum6mo.mongodb.net/?retryWrites=true&w=majority`;
+const MONGO_URL = `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@cluster0.zxum6mo.mongodb.net/TypeScriptNode?retryWrites=true&w=majority`;
 
 const connectDb = async () => {
   try {
