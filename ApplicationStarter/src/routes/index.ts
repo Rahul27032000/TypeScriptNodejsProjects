@@ -1,8 +1,9 @@
 import { Request, Response, Router } from "express";
+import { MessageResponse } from "../interfaces/messageResponse";
 
 const router = Router();
 
-router.get("/", (req: Request, res: Response) => {
+router.get<{}, MessageResponse>("/", (req: Request, res: Response) => {
   res.send("Welcome");
 });
 
