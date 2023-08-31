@@ -1,8 +1,9 @@
 import app from "./app";
-import { config } from "./config/config";
-const port = config.port;
+import { SERVER_PORT, connectDb } from "./config/config";
+
+const port = SERVER_PORT;
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
-  config.db();
+  connectDb();
 });

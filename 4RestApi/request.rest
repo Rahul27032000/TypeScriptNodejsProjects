@@ -1,0 +1,24 @@
+GET http://localhost:8080 
+
+###
+GET http://localhost:8080/api/v1/
+
+###
+POST http://localhost:8080/api/v1/authentication/register
+Content-Type: application/json
+
+{
+    "username":"user6",
+    "email":"user@user6.com",
+    "password":"Password1@"
+}
+
+###
+POST http://localhost:8080/api/v1/authentication/login
+Content-Type: application/json
+
+{
+    
+    "email":"user@use.com",
+    
+}

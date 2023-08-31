@@ -1,6 +1,13 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, Document } from "mongoose";
+import { Authentication } from "../interfaces/authentication";
 
-const UserSchema = new Schema({
+interface UserDocument extends Document {
+  username: string;
+  email: string;
+  authentication: Authentication;
+}
+
+const UserSchema = new Schema<UserDocument>({
   username: {
     type: String,
     require: true,
@@ -21,7 +28,7 @@ const UserSchema = new Schema({
   },
 });
 
-export const UserModel = model("User", UserSchema);
+export const UserModel = model<UserDocument>("User", UserSchema);
 
 export const getUser = UserModel.find();
 
@@ -35,10 +42,13 @@ export const getUserBySessionToken = (sessionToken: string) =>
 
 export const getUserById = (id: string) => UserModel.findById(id);
 
-export const createUser = (values: Record<string, any>) => {
-  new UserModel(values).save().then((user) => {
-    user.toObject();
-  });
+export const createUser = async (values: Record<string, any>) => {
+  try {
+    const user = await new UserModel(values).save();
+    return user.toObject();
+  } catch (error) {
+    throw error; // Rethrow the error to be caught by the caller
+  }
 };
 
 export const deleteUserById = (id: string) => {
